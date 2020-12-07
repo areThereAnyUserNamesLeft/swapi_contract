@@ -1,4 +1,5 @@
-package films syntax = "proto3";
+package films;
+syntax = "proto3";
 
 service filmsService {
   rpc requestFilm(filmRequest) returns (filmResponse);
