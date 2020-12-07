@@ -1,32 +1,31 @@
-package films;
 syntax = "proto3";
+package films;
+import "google/protobuf/timestamp.proto";
 
 service filmsService {
-  rpc requestFilm(filmRequest) returns (filmResponse);
+  rpc requestFilm(filmRequest) returns (filmsResponse);
   rpc requestFilms(filmRequest) returns (filmsResponse);
   rpc searchFilms(searchRequest) returns (filmsResponse);
 }
 
-message filmRequest { repeated EpisodeID int32 = 1; }
+message filmRequest { repeated int32 EpisodeID = 1; }
 
-message filmsResponse { repeated Films Film = 1; }
+message filmsResponse { repeated Film Films = 1; }
 
-message filmResponse { Film Film = 1; }
-
-message searchFilms { searchText string = 1; }
+message searchRequest { string searchText = 1; }
 
 message Film {
-  Edited timestamp = 1;
-  Producer string = 2;
-  Title string = 3;
-  Created timestamp = 4;
-  EpisodeID int32 = 5;
-  Director string = 6;
-  ReleaseDate string = 7;
-  OpeningCrawl string = 8;
-  repeated Characters int32 = 9;
-  repeated Species int32 = 10;
-  repeated Starships int32 = 11;
-  repeated Vehicles int32 = 12;
-  repeated Planets int32 = 13;
+  google.protobuf.Timestamp Edited = 1;
+  string Producer = 2;
+  string Title = 3;
+  google.protobuf.Timestamp Created = 4;
+  int32 EpisodeID = 5;
+  string Director = 6;
+  string ReleaseDate = 7;
+  string OpeningCrawl = 8;
+  repeated int32 Characters = 9;
+  repeated int32 Species = 10;
+  repeated int32 Starships = 11;
+  repeated int32 Vehicles = 12;
+  repeated int32 Planets = 13;
 }
