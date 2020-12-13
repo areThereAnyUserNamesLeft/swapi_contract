@@ -8,7 +8,7 @@ service planetsService {
   rpc searchPlanets(searchRequest) returns (planetsResponse);
 }
 
-message planetRequest { repeated int32 PK = 1; }
+message planetsRequest { repeated int32 PK = 1; }
 
 message planetsResponse { repeated Planet Planets = 1; }
 

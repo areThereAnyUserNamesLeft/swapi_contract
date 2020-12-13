@@ -1,16 +1,16 @@
 syntax = "proto3";
-package persons;
+package people;
 import "google/protobuf/timestamp.proto";
 
-service personsService {
-  rpc requestPerson(personRequest) returns (personRequest);
-  rpc requestPersons(personRequest) returns (personsResponse);
-  rpc searchPersons(searchRequest) returns (personsResponse);
+service peopleService {
+  rpc requestPerson(personRequest) returns (peopleResponse);
+  rpc requestPeople(peopleRequest) returns (peopleResponse);
+  rpc searchPersons(searchRequest) returns (peopleResponse);
 }
 
 message personRequest { repeated int32 PK = 1; }
 
-message personsResponse { repeated Film Films = 1; }
+message peopleResponse { repeated Person people = 1; }
 
 message searchRequest { string searchText = 1; }
 

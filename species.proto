@@ -3,7 +3,7 @@ package species;
 import "google/protobuf/timestamp.proto";
 
 service speciesService {
-  rpc requestSpecies(specieRequest) returns (speciesResponse);
+  rpc requestSpecies(speciesRequest) returns (speciesResponse);
   rpc searchSpecies(searchRequest) returns (speciesResponse);
 }
 
