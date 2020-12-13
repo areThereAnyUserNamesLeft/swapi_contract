@@ -8,7 +8,7 @@ service filmsService {
   rpc searchFilms(searchRequest) returns (filmsResponse);
 }
 
-message filmRequest { repeated int32 EpisodeID = 1; }
+message filmRequest { repeated int32 PK = 1; }
 
 message filmsResponse { repeated Film Films = 1; }
 
@@ -28,4 +28,5 @@ message Film {
   repeated int32 Starships = 11;
   repeated int32 Vehicles = 12;
   repeated int32 Planets = 13;
+  int32 PK = 14;
 }
