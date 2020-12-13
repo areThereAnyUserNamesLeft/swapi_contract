@@ -1,0 +1,31 @@
+syntax = "proto3";
+package transports;
+import "google/protobuf/timestamp.proto";
+
+service transportsService {
+  rpc requestTransport(transportRequest) returns (transportsResponse);
+  rpc requestTransports(transportRequest) returns (transportsResponse);
+  rpc searchTransports(searchRequest) returns (transportsResponse);
+}
+
+message transportRequest { repeated int32 PK = 1; }
+
+message transportsResponse { repeated Transport Transports = 1; }
+
+message searchRequest { string searchText = 1; }
+
+message Transport {
+  google.protobuf.Timestamp Edited = 1;
+  string Consumables = 2;
+  string Name = 3;
+  google.protobuf.Timestamp Created = 4;
+  string CargoCapacity = 5;
+  string Passengers = 6;
+  string MaxAtmospheringSpeed = 7;
+  string Crew = 8;
+  string Length = 9;
+  string Model = 10;
+  string CostInCredits = 11;
+  string Manufacturer = 12;
+  int32 PK = 13;
+}

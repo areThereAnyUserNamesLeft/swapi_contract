@@ -1,0 +1,30 @@
+syntax = "proto3";
+package planets;
+import "google/protobuf/timestamp.proto";
+
+service planetsService {
+  rpc requestPlanet(planetsRequest) returns (planetsResponse);
+  rpc requestPlanets(planetsRequest) returns (planetsResponse);
+  rpc searchPlanets(searchRequest) returns (planetsResponse);
+}
+
+message planetRequest { repeated int32 PK = 1; }
+
+message planetsResponse { repeated Planet Planets = 1; }
+
+message searchRequest { string searchText = 1; }
+
+message Planet {
+  google.protobuf.Timestamp Edited = 1;
+  string Climate = 2;
+  string SurfaceWater = 3;
+  string Name = 4;
+  string Diameter = 5;
+  string RotationPeriod = 6;
+  google.protobuf.Timestamp Created = 7;
+  string Terrain = 8;
+  string Gravity = 9;
+  string OrbitalPeriod = 10;
+  string Population = 11;
+  int32 PK = 12;
+}

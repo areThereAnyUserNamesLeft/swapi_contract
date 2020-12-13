@@ -1,0 +1,21 @@
+syntax = "proto3";
+package vehicles;
+import "google/protobuf/timestamp.proto";
+
+service vehiclesService {
+  rpc requestVehicle(vehicleRequest) returns (vehiclesResponse);
+  rpc requestVehicles(vehicleRequest) returns (vehiclesResponse);
+  rpc searchVehicles(searchRequest) returns (vehiclesResponse);
+}
+
+message vehicleRequest { repeated int32 PK = 1; }
+
+message vehiclesResponse { repeated Vehicle Vehicles = 1; }
+
+message searchRequest { string searchText = 1; }
+
+message Vehicle {
+  string VehicleClass = 1;
+  repeated int32 Pilots = 2;
+  int32 PK = 3;
+}

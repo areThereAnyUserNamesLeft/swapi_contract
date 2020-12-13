@@ -1,0 +1,29 @@
+syntax = "proto3";
+package species;
+import "google/protobuf/timestamp.proto";
+
+service speciesService {
+  rpc requestSpecies(specieRequest) returns (speciesResponse);
+  rpc searchSpecies(searchRequest) returns (speciesResponse);
+}
+
+message speciesResponse { repeated Speci Species = 1; }
+
+message searchRequest { string searchText = 1; }
+
+message Speci {
+  google.protobuf.Timestamp Edited = 1;
+  string Clasification = 2;
+  string Name = 3;
+  string Designation = 4;
+  google.protobuf.Timestamp Created = 5;
+  string EyeColors = 6;
+  repeated int32 Persons = 7;
+  string SkinColors = 8;
+  string Language = 9;
+  string HairColors = 10;
+  int32 Homeworld = 11;
+  string AverageLifespan = 12;
+  string AverageHeight = 13;
+  int32 PK = 14;
+}

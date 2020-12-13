@@ -1,0 +1,23 @@
+syntax = "proto3";
+package starships;
+import "google/protobuf/timestamp.proto";
+
+service starshipsService {
+  rpc requestStarship(starshipRequest) returns (starshipsResponse);
+  rpc requestStarships(starshipRequest) returns (starshipsResponse);
+  rpc searchStarships(searchRequest) returns (starshipsResponse);
+}
+
+message starshipRequest { repeated int32 PK = 1; }
+
+message starshipsResponse { repeated Starship Starships = 1; }
+
+message searchRequest { string searchText = 1; }
+
+message Starship {
+  repeated int32 Pilots = 1;
+  string MGLT = 2;
+  string StarshipClass = 3;
+  string HyperdriveRating = 4;
+  int32 PK = 5;
+}

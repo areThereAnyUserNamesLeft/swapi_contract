@@ -1,0 +1,31 @@
+syntax = "proto3";
+package persons;
+import "google/protobuf/timestamp.proto";
+
+service personsService {
+  rpc requestPerson(personRequest) returns (personRequest);
+  rpc requestPersons(personRequest) returns (personsResponse);
+  rpc searchPersons(searchRequest) returns (personsResponse);
+}
+
+message personRequest { repeated int32 PK = 1; }
+
+message personsResponse { repeated Film Films = 1; }
+
+message searchRequest { string searchText = 1; }
+
+message Person {
+  google.protobuf.Timestamp Edited = 1;
+  string Name = 2;
+  google.protobuf.Timestamp Created = 3;
+  string Gender = 4;
+  string Title = 5;
+  string SkinColor = 6;
+  string HairColor = 7;
+  string Height = 8;
+  string EyeColor = 7;
+  string Mass = 8;
+  int32 Homeworld = 9;
+  string Birthyear = 10;
+  int32 PK = 11;
+}
