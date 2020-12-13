@@ -1,6 +1,5 @@
 syntax = "proto3";
 package vehicles;
-import "google/protobuf/timestamp.proto";
 
 service vehiclesService {
   rpc requestVehicle(vehicleRequest) returns (vehiclesResponse);

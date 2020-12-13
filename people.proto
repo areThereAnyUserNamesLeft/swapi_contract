@@ -3,12 +3,12 @@ package people;
 import "google/protobuf/timestamp.proto";
 
 service peopleService {
-  rpc requestPerson(personRequest) returns (peopleResponse);
+  rpc requestPerson(peopleRequest) returns (peopleResponse);
   rpc requestPeople(peopleRequest) returns (peopleResponse);
   rpc searchPersons(searchRequest) returns (peopleResponse);
 }
 
-message personRequest { repeated int32 PK = 1; }
+message peopleRequest { repeated int32 PK = 1; }
 
 message peopleResponse { repeated Person people = 1; }
 
@@ -23,9 +23,9 @@ message Person {
   string SkinColor = 6;
   string HairColor = 7;
   string Height = 8;
-  string EyeColor = 7;
-  string Mass = 8;
-  int32 Homeworld = 9;
-  string Birthyear = 10;
-  int32 PK = 11;
+  string EyeColor = 9;
+  string Mass = 10;
+  int32 Homeworld = 11;
+  string Birthyear = 12;
+  int32 PK = 13;
 }
