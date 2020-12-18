@@ -7,7 +7,7 @@ service speciesService {
   rpc searchSpecies(searchRequest) returns (speciesResponse);
 }
 
-message speciesRequest { repeated int32 = 1; }
+message speciesRequest { repeated int32 species = 1; }
 message speciesResponse { repeated Speci Species = 1; }
 
 message searchRequest { string searchText = 1; }
